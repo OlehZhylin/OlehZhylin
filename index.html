@@ -1,1 +1,94 @@
-Hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Course for Beginners</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        header {
+            background: #0056b3;
+            color: white;
+            padding: 1rem 2rem;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1rem;
+            font-weight: bold;
+        }
+        main {
+            padding: 2rem;
+            background: #f4f4f9;
+        }
+        .lesson {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .lesson h2 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+        .lesson p {
+            margin: 0.5rem 0;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #0056b3;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>JavaScript Course</h1>
+            <div>
+                <a href="#about">About</a>
+                <a href="#lessons">Lessons</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="about">
+            <h2>Welcome to the JavaScript Course for Beginners!</h2>
+            <p>This course consists of 30 lessons designed to teach you the basics of JavaScript programming step by step.</p>
+        </section>
+
+        <section id="lessons">
+            <h2>Course Lessons</h2>
+            <div class="lesson">
+                <h2>Lesson 1: Introduction to JavaScript</h2>
+                <p>Learn what JavaScript is and how it can make your web pages interactive.</p>
+            </div>
+            <div class="lesson">
+                <h2>Lesson 2: Setting Up Your Environment</h2>
+                <p>Get started by setting up a coding environment with a text editor and browser.</p>
+            </div>
+            <!-- Repeat similar structure for all 30 lessons -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 JavaScript Course. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
