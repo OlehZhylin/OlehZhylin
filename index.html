@@ -1,94 +1,387 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Course for Beginners</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Курс JavaScript для початківців</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
+            background-color: #F1F1F1;
             margin: 0;
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: #333;
+            padding: 0;
         }
         header {
-            background: #0056b3;
-            color: white;
-            padding: 1rem 2rem;
+            background-color: #F9B944;
+            color: #000000;
+            text-align: center;
+            padding: 20px 0;
         }
-        header h1 {
-            margin: 0;
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        nav a {
-            color: white;
+        .button {
+            background-color: #000000;
+            color: #F9B944;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
             text-decoration: none;
-            margin-left: 1rem;
-            font-weight: bold;
+            transition: background-color 0.3s;
         }
-        main {
-            padding: 2rem;
-            background: #f4f4f9;
+        .button:hover {
+            background-color: #D99F2E;
+        }
+        .course-info {
+            display: flex;
+            justify-content: space-around;
+            padding: 30px;
+            background: #FFFFFF;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .course-info img {
+            max-width: 300px;
+            border-radius: 10px;
+        }
+        .course-info div {
+            flex: 1;
+            padding: 20px;
+        }
+        .course-info h2 {
+            color: #000000;
         }
         .lesson {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background: white;
-            border-radius: 5px;
+            padding: 20px;
+            background-color: #000000;
+            color: #F9B944;
+            margin: 15px;
+            border: 2px solid #F9B944;
+            border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s forwards;
         }
-        .lesson h2 {
-            margin-top: 0;
-            color: #0056b3;
+        .lesson h3 {
+            margin: 0;
+            font-size: 1.2em;
         }
         .lesson p {
-            margin: 0.5rem 0;
+            margin-top: 10px;
+        }
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         footer {
+            background-color: #F9B944;
+            color: #000000;
             text-align: center;
-            padding: 1rem;
-            background: #0056b3;
-            color: white;
+            padding: 10px 0;
+        }
+        .course-image {
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+            display: block;
+            background-color: #000000;
+            position: relative;
+            transition: background-color 0.5s, transform 0.3s;
+            border-radius: 15px;
+            border: 3px solid #F9B944; /* Бордер кольору #F9B944 */
+        }
+
+        .course-image:hover {
+            background-color: #D99F2E;
+            transform: scale(1.05);
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border-radius: 15px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <h1>JavaScript Course</h1>
-            <div>
-                <a href="#about">About</a>
-                <a href="#lessons">Lessons</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <section id="about">
-            <h2>Welcome to the JavaScript Course for Beginners!</h2>
-            <p>This course consists of 30 lessons designed to teach you the basics of JavaScript programming step by step.</p>
-        </section>
 
-        <section id="lessons">
-            <h2>Course Lessons</h2>
-            <div class="lesson">
-                <h2>Lesson 1: Introduction to JavaScript</h2>
-                <p>Learn what JavaScript is and how it can make your web pages interactive.</p>
-            </div>
-            <div class="lesson">
-                <h2>Lesson 2: Setting Up Your Environment</h2>
-                <p>Get started by setting up a coding environment with a text editor and browser.</p>
-            </div>
-            <!-- Repeat similar structure for all 30 lessons -->
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 JavaScript Course. All Rights Reserved.</p>
-    </footer>
+<header>
+    <h1>Курс JavaScript для початківців</h1>
+    <p>Навчайтесь JavaScript з нуля!</p>
+    <a href="https://forms.gle/your-google-form-link" class="button">Записатись на курс</a>
+</header>
+
+<section class="course-info">
+    <div>
+        <h2>Про курс</h2>
+        <p>Цей курс допоможе вам освоїти основи JavaScript та розпочати свою подорож у світ веб-розробки.</p>
+        <button class="button" onclick="alert('Зареєструйтесь для участі!')">Записатись на курс</button>
+    </div>
+    <div class="course-image">
+        <canvas id="mandelbrotCanvas"></canvas>
+    </div>
+</section>
+
+<section>
+    <h2 style="text-align:center; color:#000000; padding: 20px;">Зміст курсу:</h2>
+    <div class="lesson">
+        <h3>Урок 1: Введення в JavaScript</h3>
+        <p>Ознайомлення з основами мови JavaScript, її роль у веб-розробці та перші кроки з написанням простих скриптів.</p>
+        <ul>
+            <li>Що таке JavaScript?</li>
+            <li>Роль JavaScript у веб-розробці</li>
+            <li>Історія мови JavaScript</li>
+            <li>Встановлення середовища для роботи з JavaScript</li>
+            <li>Структура простого JavaScript-файлу</li>
+            <li>Типи даних у JavaScript</li>
+            <li>Оператори в JavaScript</li>
+            <li>Основи синтаксису JavaScript</li>
+            <li>Інтерактивність з браузером</li>
+            <li>Написання першого JavaScript-коду</li>
+        </ul>
+    </div>
+    
+    <div class="lesson">
+        <h3>Урок 2: Змінні та типи даних</h3>
+        <p>Розгляд основних типів даних у JavaScript: числа, рядки, булеві значення та оголошення змінних.</p>
+        <ul style="display:none;">
+            <li>Що таке змінні?</li>
+            <li>Оголошення змінних: var, let, const</li>
+            <li>Типи даних: числа, рядки, булеві значення</li>
+            <li>Конвертація типів</li>
+            <li>Порівняння типів</li>
+            <li>Перевірка типів за допомогою typeof</li>
+            <li>Математичні операції в JavaScript</li>
+            <li>Робота з рядками</li>
+            <li>Робота з булевими значеннями</li>
+            <li>Операції порівняння</li>
+        </ul>
+    </div>
+    
+    <div class="lesson">
+        <h3>Урок 3: Оператори</h3>
+        <p>Ознайомлення з арифметичними, порівняльними та логічними операторами в JavaScript.</p>
+        <ul style="display:none;">
+            <li>Арифметичні оператори: +, -, *, /, %</li>
+            <li>Оператори порівняння: ==, ===, !=, !==, >, <</li>
+            <li>Логічні оператори: &&, ||, !</li>
+            <li>Пріоритет операторів</li>
+            <li>Інкремент і декремент: ++, --</li>
+            <li>Оператор присвоєння: =, +=, -=, *=, /=</li>
+            <li>Оператор умови (тернарний): ? :</li>
+            <li>Оператор "typeof"</li>
+            <li>Оператор "in" для перевірки властивостей об'єкта</li>
+            <li>Оператор "instanceof" для перевірки типів об'єктів</li>
+        </ul>
+    </div>
+    
+    <div class="lesson">
+        <h3>Урок 4: Умовні конструкції</h3>
+        <p>Вивчення умовних операторів: if, else, switch.</p>
+        <ul style="display:none;">
+            <li>Оператор if</li>
+            <li>Оператор else</li>
+            <li>Оператор else if</li>
+            <li>Оператор switch</li>
+            <li>Порівняння в умовах</li>
+            <li>Логічні вирази в умовах</li>
+            <li>Як працює оператор return в умовах</li>
+            <li>Мульти-умови з використанням && та ||</li>
+            <li>Робота з null та undefined у умовах</li>
+            <li>Практичні приклади використання умовних операторів</li>
+        </ul>
+    </div>
+    
+    <div class="lesson">
+        <h3>Урок 5: Цикли</h3>
+        <p>Розгляд циклів for, while, do-while для повторення операцій у коді.</p>
+        <ul style="display:none;">
+            <li>Цикл for: структура та використання</li>
+            <li>Цикл while: структура та використання</li>
+            <li>Цикл do-while: структура та використання</li>
+            <li>Розрив циклу: break</li>
+            <li>Пропуск ітерації: continue</li>
+            <li>Цикли з вкладеними циклами</li>
+            <li>Практичні приклади з циклами</li>
+            <li>Цикли по масивах</li>
+            <li>Ітератори і генератори</li>
+            <li>Оптимізація циклів</li>
+        </ul>
+    </div>
+    
+    <div class="lesson">
+        <h3>Урок 6: Функції</h3>
+        <p>Основи створення та використання функцій в JavaScript, параметри та значення, що повертаються.</p>
+        <ul style="display:none;">
+            <li>Оголошення функцій</li>
+            <li>Функції з параметрами</li>
+            <li>Функції без параметрів</li>
+            <li>Повернення значень з функцій</li>
+            <li>Функції як значення</li>
+            <li>Функції-вирази</li>
+            <li>Стрілкові функції</li>
+            <li>Замикання (closures)</li>
+            <li>Рекурсія</li>
+            <li>Практичні приклади використання функцій</li>
+        </ul>
+    </div>
+    
+    <div class="lesson">
+        <h3>Урок 7: Масиви</h3>
+        <p>Вивчення масивів, їх створення, доступ до елементів та основні методи масивів.</p>
+        <ul style="display:none;">
+            <li>Створення масивів</li>
+            <li>Доступ до елементів масиву</li>
+            <li>Методи масивів: push, pop, shift, unshift</li>
+            <li>Методи масивів: slice, splice</li>
+            <li>Методи масивів: map, filter, reduce</li>
+            <li>Ітерація масивів</li>
+            <li>Перевірка наявності елемента в масиві: includes</li>
+            <li>Перетворення масивів: join, toString</li>
+            <li>Об'єднання масивів: concat</li>
+            <li>Застосування масивів у реальних задачах</li>
+        </ul>
+    </div>
+    
+    <div class="lesson">
+        <h3>Урок 8: Об'єкти</h3>
+        <p>Розгляд об'єктів в JavaScript: створення, доступ до властивостей, методи об'єктів.</p>
+        <ul style="display:none;">
+            <li>Створення об'єктів</li>
+            <li>Доступ до властивостей об'єкта</li>
+            <li>Методи об'єкта</li>
+            <li>Обчислювані властивості</li>
+            <li>Оператори для об'єктів: in, delete</li>
+            <li>Перевірка типу об'єкта: instanceof</li>
+            <li>Операція деструктуризації об'єкта</li>
+            <li>Об'єкти з вкладеними об'єктами</li>
+            <li>Методи для зміни об'єктів: Object.assign</li>
+            <li>Практичні приклади використання об'єктів</li>
+        </ul>
+    </div>
+    
+    <div class="lesson">
+        <h3>Урок 9: Модулі</h3>
+        <p>Як використовувати модулі для організації коду в JavaScript, імпорт та експорт функцій та змінних.</p>
+        <ul style="display:none;">
+            <li>Що таке модулі?</li>
+            <li>Імпорт функцій та змінних</li>
+            <li>Експорт функцій та змінних</li>
+            <li>Як використовувати default-експорт</li>
+            <li>Імпорт всього з модуля</li>
+            <li>Структурування проекту з модулями</li>
+            <li>Як працює імпорт у браузерах</li>
+            <li>Модулі в Node.js</li>
+            <li>Природні обмеження модулів</li>
+            <li>Практичне застосування модулів</li>
+        </ul>
+    </div>
+    
+    <div class="lesson">
+        <h3>Урок 10: Стрілкові функції</h3>
+        <p>Розгляд стрілкових функцій, їх переваги та відмінності від звичайних функцій.</p>
+        <ul style="display:none;">
+            <li>Синтаксис стрілкових функцій</li>
+            <li>Переваги стрілкових функцій</li>
+            <li>Відмінності від звичайних функцій</li>
+            <li>Як стрілкові функції працюють з this</li>
+            <li>Приклад використання стрілкових функцій</li>
+            <li>Як працює this в стрілкових функціях</li>
+            <li>Чи можна використовувати стрілкові функції як методи об'єктів?</li>
+            <li>Стрілкові функції для коротких виразів</li>
+            <li>Використання стрілкових функцій з масивами</li>
+            <li>Обмеження стрілкових функцій</li>
+        </ul>
+    </div>
+    <div class="lesson">
+        <h3>Урок 11: Асинхронний JavaScript</h3>
+        <p>Ознайомлення з асинхронним JavaScript, включаючи колбеки, проміси та async/await.</p>
+        <ul style="display:none;">
+            <li>Що таке асинхронний код?</li>
+            <li>Асинхронність через колбеки</li>
+            <li>Проблеми колбеків: Callback Hell</li>
+            <li>Що таке проміси?</li>
+            <li>Методи промісів: then, catch, finally</li>
+            <li>Перехід до async/await</li>
+            <li>Як працює async/await</li>
+            <li>Обробка помилок у асинхронних функціях</li>
+            <li>Практичні приклади асинхронних функцій</li>
+            <li>Поєднання async/await з промісами</li>
+        </ul>
+    </div>
+
+</section>
+
+<footer>
+    <p>&copy; 2024, JavaScript Course | Усі права захищено.</p>
+</footer>
+
+<script>
+// Функція для малювання фрактала Мандельброта
+function drawMandelbrot() {
+    const canvas = document.getElementById("mandelbrotCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const width = canvas.width = canvas.clientWidth;
+    const height = canvas.height = canvas.clientHeight;
+
+    const maxIterations = 100;
+    const zoom = 70; // Зменшено значення zoom для зменшення фрактала
+    const offsetX = width / 2;
+    const offsetY = height / 2;
+
+    // Функція для малювання фрактала
+    for (let x = 0; x < width; x++) {
+        for (let y = 0; y < height; y++) {
+            let c_re = (x - offsetX) / zoom;
+            let c_im = (y - offsetY) / zoom;
+            let z_re = 0, z_im = 0;
+            let isInside = true;
+            let iterations;
+
+            for (iterations = 0; iterations < maxIterations; iterations++) {
+                let z_re2 = z_re * z_re - z_im * z_im;
+                let z_im2 = 2 * z_re * z_im;
+                z_re = z_re2 + c_re;
+                z_im = z_im2 + c_im;
+                if (z_re * z_re + z_im * z_im > 4) {
+                    isInside = false;
+                    break;
+                }
+            }
+
+            // Вибір кольору на основі кількості ітерацій
+            const color = isInside ? "black" : `rgb(${(iterations * 5) % 255}, ${(iterations * 10) % 255}, 0)`;
+            ctx.fillStyle = color;
+            ctx.fillRect(x, y, 1, 1);
+        }
+    }
+
+    const lessons = document.querySelectorAll('.lesson h3');
+
+lessons.forEach(lesson => {
+    lesson.addEventListener('click', function () {
+        let lessonContent = this.nextElementSibling;
+        lessonContent = lessonContent.nextElementSibling
+        if (lessonContent.style.display !== 'none') {
+            lessonContent.style.display = 'none';
+        } else {
+            lessonContent.style.display = 'block';
+        }
+    });
+});
+}
+
+// Малюємо фрактал після завантаження сторінки
+window.onload = drawMandelbrot;
+</script>
+
 </body>
 </html>
